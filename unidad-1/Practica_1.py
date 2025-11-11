@@ -76,6 +76,7 @@ def filtrado():
 #Se colocan ambos decoradores para medir tiempo y auditar
 @medir_tiempo
 @auditar_funcion
+#Funcion que imprime una lista de temperaturas formateadas en un texto de alerta
 def transformar():
     """
     Imprime una lista de temperaturas en formato de texto segun el generador leer_temperaturas.
@@ -86,12 +87,15 @@ def transformar():
     Returns:
         None: No retorna nada.
     """
+    #Ciclo que recorre la lista formateada del generador e imprime sus valores
     for x in list(map(lambda x: f"Alerta de calor en {x[0]}: {x[1]}°C", leer_temperaturas())):
+        #Se imprimen los datos
         print(x)
 
 #Se colocan ambos decoradores para medir tiempo y auditar
 @medir_tiempo
 @auditar_funcion
+#Funcion que imprime y ordena una lista de temperaturas en orden descendente de su temperatura
 def ordenar():
     """
     Imprime una lista de temperaturas ordenadas en orden descendente segun el generador leer_temperaturas.
@@ -102,12 +106,15 @@ def ordenar():
     Returns:
         None: No retorna nada.
     """
+    #Ciclo que recorre la lista ordenada por temperatura del generador e imprime sus valores
     for x in sorted(leer_temperaturas(), key=lambda x: x[1], reverse = True):
+        #Se da formato a la impresion de los datos
         print(f"{x[0]}: {x[1]}")
 
 #Se colocan ambos decoradores para medir tiempo y auditar
 @medir_tiempo
 @auditar_funcion
+#Funcion que imprime el promedio de temperaturas en un formato requerido
 def reducir():
     """
     Imprime un mensaje y el promedio de las temperaturas segun el generador leer_temperaturas.
@@ -118,11 +125,13 @@ def reducir():
     Returns:
         None: No retorna nada.
     """
+    #Se imprime el promedio de las temperaturas en un mensaje
     print(f"Temperatura promedio de alertas: {functools.reduce(lambda x, y:  x + y, temp := [z[1] for z in leer_temperaturas()]) / len(temp)}")
 
 #Se colocan ambos decoradores para medir tiempo y auditar
 @medir_tiempo
 @auditar_funcion
+#Funcion que imprime la lista original del generador
 def lista_original():
     """
     Imprime una lista de temperaturas completa segun el generador leer_temperaturas.
@@ -133,7 +142,9 @@ def lista_original():
     Returns:
         None: No retorna nada.
     """
+    #Ciclo que imprime la lista del generador
     for x in leer_temperaturas():
+        #Se da formato a la impresion de los datos
         print(f"{x[0]}: {x[1]}")
 
 #Funcion para realizar una cantidad fija de llamadas de una funcion
@@ -147,7 +158,9 @@ def llamar_n(funcion, veces):
     Returns:
         None: No retorna nada.
     """
+    #Ciclo para realizar una cantidad fija de llamadas a una funcion
     for i in range(veces):
+        #Se invoca la funcion
         funcion()
    
 #Funcion de arranque
@@ -161,11 +174,17 @@ def main():
     Returns:
         None: No retorna nada.
     """
+    #Se imprime la lista original
     lista_original()
+    #Se imprime el filtrado de los datos
     filtrado()
+    #Se imprime la lista transformada como texto
     transformar()
+    #Se imprime la lista reordenada descendente por temperaturas
     ordenar()
+    #Se imprime el promedio de las temperaturas
     reducir()
+    #Se llama 3 veces a la funcion reducir para corroborar la cantidad de llamadas
     llamar_n(reducir, 3)
 
 #Se corre el sistema
