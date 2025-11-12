@@ -1,6 +1,5 @@
 #Se importan liberias
-import time
-import functools
+import time, functools
 
 #Decorador para medir el tiempo de ejecucion de una funcion
 def medir_tiempo(funcion):
@@ -48,7 +47,11 @@ def leer_temperaturas():
         None: No retorna nada.
     """
     #Se simulan los registros mediante una lista
-    ciudades = [('Estado de México', 50), ('Nuevo León', 71), ('Tamaulipas', 77), ('Coahuila', 79), ('Jalisco', 81), ('Veracruz', 84), ('Guanajuato', 85), ('Sonora', 87), ('Baja California', 88), ('Chiapas', 90), ('Colima', 92), ('Michoacán', 93), ('Morelos', 95), ('Quintana Roo', 96), ('Sinaloa', 97), ('Baja California Sur', 0), ('Campeche', 1), ('Chihuahua', 4), ('Durango', 6), ('Guerrero', 7), ('Puebla', 9), ('Querétaro', 11), ('San Luis Potosí', 12), ('Aguascalientes', 13), ('Hidalgo', 14), ('Mexico City', 17), ('Nayarit', 19), ('Oaxaca', 20), ('Tabasco', 21), ('Yucatán', 22), ('Zacatecas', 24), ('Tlaxcala', 25)]
+    ciudades = [('Estado de México', 50), ('Nuevo León', 71), ('Tamaulipas', 77), ('Coahuila', 79), ('Jalisco', 81), ('Veracruz', 84), ('Guanajuato', 85), 
+                ('Sonora', 87), ('Baja California', 88), ('Chiapas', 90), ('Colima', 92), ('Michoacán', 93), ('Morelos', 95), ('Quintana Roo', 96), 
+                ('Sinaloa', 97), ('Baja California Sur', 0), ('Campeche', 1), ('Chihuahua', 4), ('Durango', 6), ('Guerrero', 7), ('Puebla', 9), 
+                ('Querétaro', 11), ('San Luis Potosí', 12), ('Aguascalientes', 13), ('Hidalgo', 14), ('Mexico City', 17), ('Nayarit', 19), ('Oaxaca', 20), 
+                ('Tabasco', 21), ('Yucatán', 22), ('Zacatecas', 24), ('Tlaxcala', 25)]
     #Ciclo para servir cada tupla
     for x in ciudades:
         #Se sirve cada tupla
@@ -187,5 +190,6 @@ def main():
     #Se llama 3 veces a la funcion reducir para corroborar la cantidad de llamadas
     llamar_n(reducir, 3)
 
-#Se corre el sistema
-main()
+if __name__ == "__main__":
+    #Se corre el sistema
+    main()
