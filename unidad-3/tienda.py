@@ -10,7 +10,7 @@ class Tienda:
         self.productos: dict[Producto] = {}
 
     def registrar_venta(self, cliente: Cliente, venta: list[Producto]) -> None:
-        self.ventas[cliente] = Venta(cliente)
+        self.ventas[cliente] = Venta(cliente) #COMPOSICION
         for x in venta:
             self.ventas[cliente].agregar_producto(x)
         
