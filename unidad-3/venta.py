@@ -2,7 +2,7 @@ from producto import Producto
 from cliente import Cliente
 
 class Venta:
-    def __init__(self, cliente: Cliente):
+    def __init__(self, cliente: Cliente): #AGREGACION
         self.cliente = cliente
         self.productos: list[Producto] = []
 
