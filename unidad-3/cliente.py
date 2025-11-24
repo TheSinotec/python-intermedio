@@ -2,7 +2,7 @@ from usuario import Usuario
 
 class Cliente(Usuario):
     def __init__(self, nombre: str, correo: str, saldo: float):
-        super().__init__(nombre, correo)
+        super().__init__(nombre, correo) #HERENCIA DE CLASE USUARIO
         self.saldo = saldo
 
     def mostrar_info(self) -> str:
