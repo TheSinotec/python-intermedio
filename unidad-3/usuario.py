@@ -15,13 +15,27 @@ class Usuario(ABC): #ABSTRACCION
     """
     #Se inicializa el constructor de la clase
     def __init__(self, nombre: str, correo: str):
+        """
+        Parameters:
+            nombre (String): El nombre del usuario.
+            correo (String): El correo del usuario.
+        """
         #Se inicializa el nombre
         self.nombre = nombre
         #Se inicializa el correo
         self.correo = correo
     
-    #Funcion abstracta para mostrar informacion decorada como metodo abstracto
+    #Metodo abstracto para mostrar informacion decorada como metodo abstracto
     @abstractmethod  #DECORADOR
     def mostrar_info(self) -> str:
+        """
+        Metodo abstracto de mostrar informacion.
+        
+        Parameters:
+            (None): No recibe nada.
+        
+        Returns:
+            (String): Retorna una cadena.
+        """
         #Se define de manera abstracta
         pass
