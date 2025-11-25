@@ -1,4 +1,4 @@
-#Se importa la clase de Usuario
+#Se importa la clase Usuario del modulo usuario
 from usuario import Usuario
 
 #Se define la clase Cliente como subclase de Usuario
