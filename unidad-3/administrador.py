@@ -1,4 +1,4 @@
-#Se importa liberia de usuario
+#Se importa la clase Usuario del modulo usuario
 from usuario import Usuario
 
 #Se define la clase Administracion como subclase de Usuario
