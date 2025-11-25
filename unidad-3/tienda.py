@@ -5,6 +5,8 @@ from cliente import Cliente
 #Se importa la clase Producto del modulo producto
 from producto import Producto
 
+from functools import reduce
+
 #Se define la clase Tienda
 class Tienda:
     """
@@ -52,14 +54,19 @@ class Tienda:
         Returns:
             (None): No retorna.
         """
-        #Se crea la venta si no existe
-        if cliente not in self.ventas.keys():
-            #Se crea el objeto venta
-            self.ventas[cliente] = Venta(cliente) #COMPOSICION
-        #Se recorre la lista de productos comprados
-        for x in venta:
-            #Se agrega el producto a la venta
-            self.ventas[cliente].agregar_producto(x)
+        costo = reduce(lambda x, y:  x + y, [z.precio for z in venta])
+        if costo > self.clientes[cliente].saldo:
+            print("\nNo se puede realizar la compra. Saldo insuficiente.")
+        else:
+            #Se crea la venta si no existe
+            if cliente not in self.ventas.keys():
+                #Se crea el objeto venta
+                self.ventas[cliente] = Venta(cliente) #COMPOSICION
+            #Se recorre la lista de productos comprados
+            for x in venta:
+                #Se agrega el producto a la venta
+                self.ventas[cliente].agregar_producto(x)
+            self.clientes[cliente].saldo -= costo
     
     #Metodo para registrar un nuevo producto
     def registrar_producto(self, nombre: str, precio: float) -> None:
