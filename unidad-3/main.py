@@ -35,6 +35,16 @@ def es_flotante(num: str):
 
 #Funcion para pedir campos de texto
 def pedir_campo(nombre: str, condicion = str):
+    """
+    Funcion que muestra un mensaje de captura y una funcion de validacion booleana.
+
+    Parameters:
+        nombre (String): El mensaje de ingreso.
+        condicion (Function): Funcion de validacion booleana.
+    
+    Returns:
+        x (String): El texto capurado y validado.
+    """
     #Bucle de validación
     while True:
         #Texto de entrada
@@ -48,6 +58,15 @@ def pedir_campo(nombre: str, condicion = str):
 
 #Funcion de menu de opciones
 def menu(tienda: Tienda):
+    """
+    Funcion de ejecucion del menu de la tienda.
+
+    Parameters:
+        tienda (Tienda): El objeto Tienda, que representa el manejo de la informacion.
+    
+    Returns:
+        (None): No regresa nada.
+    """
     #Se inicializa una lista con las secciones del menu
     parte_menu = ["salir.", "agregar un cliente nuevo.", "agregar un producto nuevo.", "registrar una venta.", "obtener un resumen de un cliente."]
     #Bucle de validacion
