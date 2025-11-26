@@ -4,7 +4,7 @@ from venta import Venta
 from cliente import Cliente
 #Se importa la clase Producto del modulo producto
 from producto import Producto
-
+#Se importa la funcion reduce del modulo functools
 from functools import reduce
 
 #Se define la clase Tienda
@@ -45,7 +45,7 @@ class Tienda:
     #Metodo para registrar la venta de un cliente segun una lista de productos
     def registrar_venta(self, cliente: Cliente, venta: list[Producto]) -> None:
         """
-        Metodo para registrar la venta de un cliente segun una lista de productos
+        Metodo para registrar la venta de un cliente segun una lista de productos y saldo
         
         Parameters:
             cliente (Cliente): El cliente que genera la venta.
@@ -54,8 +54,11 @@ class Tienda:
         Returns:
             (None): No retorna.
         """
+        #Se calcula el costo de la venta
         costo = reduce(lambda x, y:  x + y, [z.precio for z in venta])
+        #Si el caldo del cliente no es suficiente se manda mensaje y no hace la compra
         if costo > self.clientes[cliente].saldo:
+            #Mensaje de falta de saldo
             print("\nNo se puede realizar la compra. Saldo insuficiente.")
         else:
             #Se crea la venta si no existe
@@ -66,6 +69,7 @@ class Tienda:
             for x in venta:
                 #Se agrega el producto a la venta
                 self.ventas[cliente].agregar_producto(x)
+            #Se actualiza el saldo del cliente
             self.clientes[cliente].saldo -= costo
     
     #Metodo para registrar un nuevo producto
