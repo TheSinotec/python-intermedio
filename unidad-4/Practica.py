@@ -210,7 +210,7 @@ if __name__ == "__main__":
             #Se pide el campo nombre sin validacion
             pedir_campo("nombre", lambda x: True), 
             #Se pide el campo edad simulando una adaptacion de tipo
-            pedir_campo("edad", val_input), 
+            val_input(pedir_campo("edad", val_input)), 
             #Se pide el campo correo sin validacion
             pedir_campo("correo", lambda x: True)
             )
